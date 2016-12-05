@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.liuhaoyuan.customviewdemo.view.DragLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_drag"
+    android:layout_width="match_parent"
+    android:background="@drawable/menu_bg"
+    android:layout_height="match_parent"
+    tools:context="com.example.liuhaoyuan.customviewdemo.DragActivity">
+
+    <include layout="@layout/drag_menu_layout"></include>
+
+    <include layout="@layout/drag_content_layout"></include>
+</com.example.liuhaoyuan.customviewdemo.view.DragLayout>
