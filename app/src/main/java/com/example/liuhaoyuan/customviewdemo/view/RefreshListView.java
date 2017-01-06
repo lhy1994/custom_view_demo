@@ -5,17 +5,12 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.RotateAnimation;
 import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
 import android.widget.AdapterView;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
 
 import com.example.liuhaoyuan.customviewdemo.R;
 
@@ -136,15 +131,11 @@ public class RefreshListView extends ListView implements OnScrollListener,
         switch (currentState) {
             case STATE_PULL_REFRESH:
                 title.setText("下拉刷新");
-//			arrImageView.startAnimation(rotateAnimationDown);
-//			arrImageView.setVisibility(View.VISIBLE);
                 progressBar.setVisibility(View.INVISIBLE);
                 break;
 
             case STATE_REFRESHING:
                 title.setText("正在刷新");
-//			arrImageView.clearAnimation();
-//			arrImageView.setVisibility(View.INVISIBLE);
                 progressBar.setVisibility(View.VISIBLE);
                 if (refreshListener != null) {
                     refreshListener.onRefresh();
@@ -152,29 +143,12 @@ public class RefreshListView extends ListView implements OnScrollListener,
                 break;
             case STATE_RELEASE_REFRESH:
                 title.setText("松开刷新...");
-//			arrImageView.startAnimation(rotateAnimationUP);
-//			arrImageView.setVisibility(View.VISIBLE);
                 progressBar.setVisibility(View.INVISIBLE);
                 break;
             default:
                 break;
         }
     }
-
-//	private void initArrAnimation() {
-//
-//		rotateAnimationUP = new RotateAnimation(0, -180,
-//				Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF,
-//				0.5f);
-//		rotateAnimationUP.setDuration(200);
-//		rotateAnimationUP.setFillAfter(true);
-//
-//		rotateAnimationDown = new RotateAnimation(0, -180,
-//				Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF,
-//				0.5f);
-//		rotateAnimationUP.setDuration(200);
-//		rotateAnimationUP.setFillAfter(true);
-//	}
 
     private OnRefreshListener refreshListener;
     private View footerView;
@@ -195,7 +169,6 @@ public class RefreshListView extends ListView implements OnScrollListener,
         } else {
             currentState = STATE_PULL_REFRESH;
             title.setText("刷新完成");
-//			arrImageView.setVisibility(View.VISIBLE);
             progressBar.setVisibility(View.INVISIBLE);
             headerView.setPadding(0, -headerHight, 0, 0);
             if (success) {
